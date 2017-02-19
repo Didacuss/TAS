@@ -1,5 +1,5 @@
 # TAS
-Totem Advanced Selling is a free demo application for selling some products.
+Totem Advanced Selling is a free demo application for selling some products, including the correct fee product.
 
 # License
 TAS is open source software, licensed under the terms of BSD license. See [LICENSE](https://github.com/Didacuss/TAS/blob/master/LICENSE) for details.
