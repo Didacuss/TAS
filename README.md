@@ -12,5 +12,7 @@ After the application is started you must select at least one basket and then pr
 
 # Notes
 For this demo the "Exit" button and the "Close" button window are visible but in a real context could be hidden.
+
 The output receipt is in a .txt file that you can configure in the App.config file.
+
 You can setting the application log file in the NLog.config.
