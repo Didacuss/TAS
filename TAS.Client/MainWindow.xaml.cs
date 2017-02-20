@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using TAS.Data.Entity;
 using TAS.Data.Model;
 using TAS.Services;
@@ -12,10 +11,10 @@ namespace TAS.Client
   /// <summary>
   /// Interaction logic for MainWindow.xaml
   /// </summary>
-  public partial class MainWindow : Window
+  public partial class MainWindow
   {
-    private SaleService _saleService = new SaleService();
-    private DataService _dataService = new DataService();
+    private readonly SaleService _saleService = new SaleService();
+    private readonly DataService _dataService = new DataService();
 
     public MainWindow()
     {

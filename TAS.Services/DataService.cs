@@ -58,11 +58,13 @@ namespace TAS.Services
               List<Item> basketItems = query.ToList();
 
               Basket basket = new Basket(code, description, basketItems);
-              BasketModel basketModel = new BasketModel();
-              basketModel.Basket = basket;
-              basketModel.IsSelected = true;
+	            BasketModel basketModel = new BasketModel
+	            {
+		            Basket = basket,
+		            IsSelected = true
+	            };
 
-              baskets.Add(basketModel);
+	            baskets.Add(basketModel);
             }
             else
             {
@@ -83,11 +85,13 @@ namespace TAS.Services
               List<Item> basketItems = query.ToList();
 
               Basket basket = new Basket(code, description, basketItems);
-              BasketModel basketModel = new BasketModel();
-              basketModel.Basket = basket;
-              basketModel.IsSelected = true;
+	            BasketModel basketModel = new BasketModel
+	            {
+		            Basket = basket,
+		            IsSelected = true
+	            };
 
-              baskets.Add(basketModel);
+	            baskets.Add(basketModel);
             }
             else
             {
@@ -108,11 +112,13 @@ namespace TAS.Services
               List<Item> basketItems = query.ToList();
 
               Basket basket = new Basket(code, description, basketItems);
-              BasketModel basketModel = new BasketModel();
-              basketModel.Basket = basket;
-              basketModel.IsSelected = true;
+	            BasketModel basketModel = new BasketModel
+	            {
+		            Basket = basket,
+		            IsSelected = true
+	            };
 
-              baskets.Add(basketModel);
+	            baskets.Add(basketModel);
             }
             else
             {

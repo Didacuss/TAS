@@ -9,7 +9,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using TAS.Data.Entity;
 using TAS.Data.Model;
 using TAS.Framework.Exceptions;
 
@@ -30,43 +29,40 @@ namespace TAS.Services
       try
       {
         List<ReceiptRow> receiptRows = new List<ReceiptRow>();
-        ReceiptRow receiptRow = null;
 
-        var basketSelected = baskets.Where(b => b.IsSelected).OrderBy(b => b.Basket.Code);
+	      var basketSelected = baskets.Where(b => b.IsSelected).OrderBy(b => b.Basket.Code);
         foreach (var basket in basketSelected)
         {
           decimal salesTaxes = 0;
           decimal total = 0;
 
           // Title
-          receiptRow = new ReceiptRow();
-          receiptRow.Description = $"Basket {basket.Basket.Description}:\r\n";
+	        var receiptRow = new ReceiptRow {Description = $"{basket.Basket.Description}:\r\n"};
 
-          receiptRows.Add(receiptRow);
+	        receiptRows.Add(receiptRow);
           foreach (var item in basket.Basket.Items)
           {
-            receiptRow = new ReceiptRow();
+	          receiptRow = new ReceiptRow
+	          {
+		          Description = $"{1} {item.Description}: {item.TotalAmount.ToString("0.00")}\r\n"
+	          };
 
-            receiptRow.Description = $"{1} {item.Description}: {item.TotalAmount.ToString("0.00")}\r\n";
-            receiptRows.Add(receiptRow);
+	          receiptRows.Add(receiptRow);
 
             salesTaxes += item.TaxAmount + item.ImportedTaxAmount;
             total += item.TotalAmount;
           }
           // Tax
-          receiptRow = new ReceiptRow();
-          receiptRow.Description = $"Sales Taxes: {salesTaxes.ToString("0.00")}\r\n";
-          receiptRows.Add(receiptRow);
+	        receiptRow = new ReceiptRow {Description = $"Sales Taxes: {salesTaxes.ToString("0.00")}\r\n"};
+	        receiptRows.Add(receiptRow);
 
           // Total
-          receiptRow = new ReceiptRow();
-          receiptRow.Description = $"Total: {total.ToString("0.00")}\r\n";
-          receiptRows.Add(receiptRow);
+	        receiptRow = new ReceiptRow {Description = $"Total: {total.ToString("0.00")}\r\n"};
+	        receiptRows.Add(receiptRow);
 
           // Line feed
-          receiptRow = new ReceiptRow();
-          receiptRow.Description = "\r\n";
-          receiptRows.Add(receiptRow);
+	        receiptRow = new ReceiptRow {Description = "\r\n"};
+	        receiptRows.Add(receiptRow);
         }
 
         PrintReceipt(receiptRows);
