@@ -10,5 +10,7 @@ Use Visual Studio 2013/2015 with .NET target framework to 4.5 or higher and open
 # How to use
 After the application is started you must select at least one basket and then press the "Buy" button on the left corner.
 
-P.S.:
+# Notes
 For this demo the "Exit" button and the "Close" button window are visible but in a real context could be hidden.
+The output receipt is in a .txt file that you can configure in the App.config file.
+You can setting the application log file in the NLog.config.
